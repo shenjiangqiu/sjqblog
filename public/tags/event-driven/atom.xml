@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - event driven</title>
+	<link href="https://blog.thesjq.com/tags/event-driven/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://blog.thesjq.com"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-05-11T00:00:00+00:00</updated>
+	<id>https://blog.thesjq.com/tags/event-driven/atom.xml</id>
+	<entry xml:lang="en">
+		<title>my project</title>
+		<published>2022-05-11T00:00:00+00:00</published>
+		<updated>2022-05-11T00:00:00+00:00</updated>
+		<link href="https://blog.thesjq.com/posts/myproject/" type="text/html"/>
+		<id>https://blog.thesjq.com/posts/myproject/</id>
+		<content type="html">&lt;h1 id=&quot;this-is-our-first-post&quot;&gt;This is our first Post!&lt;&#x2F;h1&gt;
+&lt;p&gt;Welcome to the first post ever on cobalt.rs!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

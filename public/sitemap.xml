@@ -13,6 +13,12 @@
         <loc>https://blog.thesjq.com/categories/markdown/</loc>
     </url>
     <url>
+        <loc>https://blog.thesjq.com/categories/programming-notes/</loc>
+    </url>
+    <url>
+        <loc>https://blog.thesjq.com/categories/project/</loc>
+    </url>
+    <url>
         <loc>https://blog.thesjq.com/docs/</loc>
     </url>
     <url>
@@ -64,10 +70,25 @@
         <loc>https://blog.thesjq.com/tags/</loc>
     </url>
     <url>
+        <loc>https://blog.thesjq.com/tags/clap/</loc>
+    </url>
+    <url>
+        <loc>https://blog.thesjq.com/tags/command-line-utilities/</loc>
+    </url>
+    <url>
+        <loc>https://blog.thesjq.com/tags/event-driven/</loc>
+    </url>
+    <url>
         <loc>https://blog.thesjq.com/tags/markdown/</loc>
     </url>
     <url>
         <loc>https://blog.thesjq.com/tags/post/</loc>
+    </url>
+    <url>
+        <loc>https://blog.thesjq.com/tags/rust/</loc>
+    </url>
+    <url>
+        <loc>https://blog.thesjq.com/tags/simulator/</loc>
     </url>
     <url>
         <loc>https://blog.thesjq.com/tags/theme/</loc>
