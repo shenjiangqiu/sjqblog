@@ -49,12 +49,15 @@ github = "shenjiangqiu"
 
 # To add google analytics
 [extra.analytics]
-google = "<your_gtag>"
+enable=false
+google = ""
 
 # To add disqus comments
 [extra.commenting]
-disqus = "<your_disqus_shortname>"
+enable=false
+disqus =""
 
 # To enable mapbox maps
 [extra.mapbox]
-access_token = "<your_access_token>"
+enable=false
+access_token = ""
