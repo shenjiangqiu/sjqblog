@@ -2,6 +2,9 @@
 title = "clap"
 description = "clap"
 date= "2022-05-11"
+[taxonomies]
+categories = ["programming notes"]
+tags = ["clap", "rust","command line utilities"]
 +++
 
 clap is a tool for generating a complete clap project.

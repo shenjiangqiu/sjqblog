@@ -1,6 +1,9 @@
 +++
 title = "zsh comp"
 date= "2022-05-11"
+[taxonomies]
+categories = ["programming notes"]
+tags = ["clap", "rust","command line utilities"]
 +++
 
 
