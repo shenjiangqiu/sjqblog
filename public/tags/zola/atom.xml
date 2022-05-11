@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - zola</title>
+	<link href="https://blog.thesjq.com/tags/zola/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://blog.thesjq.com"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-02-07T00:00:00+00:00</updated>
+	<id>https://blog.thesjq.com/tags/zola/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Theme extension</title>
+		<published>2022-02-07T00:00:00+00:00</published>
+		<updated>2022-02-07T00:00:00+00:00</updated>
+		<link href="https://blog.thesjq.com/docs/theme-extension/" type="text/html"/>
+		<id>https://blog.thesjq.com/docs/theme-extension/</id>
+		<content type="html">&lt;p&gt;DeepThought theme can be extended with &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;themes&#x2F;extending-a-theme&#x2F;&quot;&gt;usual Zola extension mechanisms&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;replacing-a-template&quot;&gt;Replacing a template&lt;&#x2F;h1&gt;
+&lt;p&gt;As any theme, all DeepThought templates &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;themes&#x2F;extending-a-theme&#x2F;#replacing-a-template&quot;&gt;can be replaced to override a whole template&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;blocks-to-extend&quot;&gt;Blocks to extend&lt;&#x2F;h1&gt;
+&lt;p&gt;If you don&#x27;t want to replace a whole DeepThought template, but override parts of it, &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;themes&#x2F;extending-a-theme&#x2F;#overriding-a-block&quot;&gt;you can extend the template and redefine some specific blocks&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Here is a WIP list of blocks in DeepThought templates to override:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Template location&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;&lt;&#x2F;th&gt;&lt;th&gt;Block&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;user_custom_stylesheet&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Custom stylesheet (css or saas) to fine-tune DeepThought styling&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;title&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Customize default page&#x27;s titles&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;analytics&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Provide your own analytics script. Google Analytics by default&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;header&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Customize page&#x27;s header&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;content&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Customize page&#x27;s content&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;search&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Provide your own search box partial template&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;pagination&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Override default pagination&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;comment&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Provide your own pagination partial template&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;other_lang_search_js&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Provide custom search behavior, eg. &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;RatanShreshtha&#x2F;DeepThought&#x2F;#elasticlunr-search-in-other-language&quot;&gt;to use languages others than English&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;code&gt;user_custom_js&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Provide any custom JS scripts at the end of the body of the page&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;hr &#x2F;&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;&#x2F;sup&gt;
+&lt;p&gt;Relative to the &lt;code&gt;templates&lt;&#x2F;code&gt; directory&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Welcome to DeepThought</title>
+		<published>2020-08-31T00:00:00+00:00</published>
+		<updated>2020-08-31T00:00:00+00:00</updated>
+		<link href="https://blog.thesjq.com/docs/welcome-to-deep-thought/" type="text/html"/>
+		<id>https://blog.thesjq.com/docs/welcome-to-deep-thought/</id>
+		<content type="html">&lt;p&gt;This is a small example post of stuff you can do with the &lt;code&gt;DeepThought&lt;&#x2F;code&gt; theme.
+We&#x27;ll try to represent all possible markdown and shortcode combinations here
+so you can develop easily.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;here-s-some-lists&quot;&gt;Here&#x27;s some lists&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;let&#x27;s list some stuff&lt;&#x2F;li&gt;
+&lt;li&gt;unordered, of course.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol&gt;
+&lt;li&gt;We can also order lists
+&lt;ol&gt;
+&lt;li&gt;And nesting here works too&lt;&#x2F;li&gt;
+&lt;li&gt;We can do whatever we want!&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;And drop back to the original indentation.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h1 id=&quot;headers&quot;&gt;Headers&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;smaller&quot;&gt;Smaller&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;smaller-still&quot;&gt;Smaller still!&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;can-t-really-get-much-smaller-than-this&quot;&gt;Can&#x27;t really get much smaller than this&lt;&#x2F;h4&gt;
+&lt;h5 id=&quot;even-if-you-try&quot;&gt;Even if you try&lt;&#x2F;h5&gt;
+&lt;h6 id=&quot;it-won-t-do-anything&quot;&gt;It won&#x27;t do anything&lt;&#x2F;h6&gt;
+&lt;p&gt;We can also &lt;em&gt;italicize&lt;&#x2F;em&gt; stuff, or make it &lt;strong&gt;bold&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;code&quot;&gt;Code&lt;&#x2F;h1&gt;
+&lt;p&gt;Want some Rust code?  We got Rust code.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; `vst` uses macros, so we&amp;#39;ll need to specify that we&amp;#39;re using them!
+&lt;&#x2F;span&gt;&lt;span&gt;#[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;macro_use&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;extern crate&lt;&#x2F;span&gt;&lt;span&gt; vst;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; We&amp;#39;re implementing a trait `Plugin` that does all the VST-y stuff for us.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;impl &lt;&#x2F;span&gt;&lt;span&gt;Plugin &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;Whisper {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;get_info&lt;&#x2F;span&gt;&lt;span&gt;(&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span&gt;) -&amp;gt; Info {
+&lt;&#x2F;span&gt;&lt;span&gt;        Info {
+&lt;&#x2F;span&gt;&lt;span&gt;            name: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Whisper&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;to_string&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can also add a filename to our code blocks which is super useful when
+providing tutorials, etc.  Here&#x27;s some HTML we can insert into our
+markdown file right before the code block.  (Meta, right?)&lt;&#x2F;p&gt;
+&lt;div class=&#x27;filename&#x27;&gt;
+  &lt;div&gt;www&#x2F;index.html&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;pre data-lang=&quot;html&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-html &quot;&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;filename&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;src&#x2F;lib.rs&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If we want, we can also &lt;code&gt;specify inline code&lt;&#x2F;code&gt; which is useful for &lt;code&gt;the small stuff&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;horizontal-rules&quot;&gt;Horizontal rules&lt;&#x2F;h2&gt;
+&lt;p&gt;We have them!&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;youtube&quot;&gt;Youtube&lt;&#x2F;h2&gt;
+&lt;p&gt;with &lt;code&gt;youtube(id=&amp;quot;the_id_here&amp;quot;)&lt;&#x2F;code&gt;
+&lt;div &gt;
+    &lt;iframe src=&quot;https:&#x2F;&#x2F;www.youtube-nocookie.com&#x2F;embed&#x2F;dNRDvLACg5Q&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;vimeo&quot;&gt;Vimeo&lt;&#x2F;h2&gt;
+&lt;p&gt;with &lt;code&gt;vimeo(id=&amp;quot;id_here&amp;quot;)&lt;&#x2F;code&gt;
+&lt;div class=&quot;vimeo is-flex is-justify-content-center is-align-items-center&quot;&gt;
+    &lt;iframe
+        width=&quot;848&quot; height=&quot;510&quot;
+        title=&quot;vimeo-player&quot; 
+        src=&quot;https:&#x2F;&#x2F;player.vimeo.com&#x2F;video&#x2F;115189988&quot; 
+        frameborder=&quot;0&quot; 
+        allowfullscreen&gt;
+    &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;links&quot;&gt;Links&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;deepthought-theme.netlify.app&#x2F;&quot;&gt;Of Course&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;tables&quot;&gt;Tables&lt;&#x2F;h2&gt;
+&lt;p&gt;You can make tables in markdown, too!  Who would have thought.  Are these styled yet?&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;First Header&lt;&#x2F;th&gt;&lt;th&gt;Second Header&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Content Cell&lt;&#x2F;td&gt;&lt;td&gt;Content Cell&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Content Cell&lt;&#x2F;td&gt;&lt;td&gt;Content Cell&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;foldable-text&quot;&gt;Foldable Text&lt;&#x2F;h2&gt;
+&lt;details&gt;
+    &lt;summary&gt;Title 1&lt;&#x2F;summary&gt;
+    &lt;p&gt;Content 1 Content 1 Content 1 Content 1 Content 1&lt;&#x2F;p&gt;
+&lt;&#x2F;details&gt;
+&lt;details&gt;
+    &lt;summary&gt;Title 2&lt;&#x2F;summary&gt;
+    &lt;p&gt;Content 2 Content 2 Content 2 Content 2 Content 2&lt;&#x2F;p&gt;
+&lt;&#x2F;details&gt;
+&lt;p&gt;We can do that like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;html&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-html &quot;&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;details&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;summary&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;Title 1&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;summary&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;Content 1 Content 1 Content 1 Content 1 Content 1&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;details&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Config Options</title>
+		<published>2020-08-30T00:00:00+00:00</published>
+		<updated>2020-08-30T00:00:00+00:00</updated>
+		<link href="https://blog.thesjq.com/docs/config-options/" type="text/html"/>
+		<id>https://blog.thesjq.com/docs/config-options/</id>
+		<content type="html">&lt;p&gt;DeepThought theme provides some config option like option to add favicon to your site, add avatar for profile, setup social links for the profile etc&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;site-configurations&quot;&gt;Site Configurations&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;author-details&quot;&gt;Author Details&lt;&#x2F;h2&gt;
+&lt;p&gt;You can configure author details in &lt;code&gt;[extra.author]&lt;&#x2F;code&gt; of &lt;code&gt;config.toml&lt;&#x2F;code&gt; file.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra.author]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;name &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;your_name&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;avatar &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;path_to_avatar&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;favicon-setup&quot;&gt;Favicon Setup&lt;&#x2F;h2&gt;
+&lt;p&gt;You can configure favicon in &lt;code&gt;[extra.favicon]&lt;&#x2F;code&gt; of &lt;code&gt;config.toml&lt;&#x2F;code&gt; file. You can use something like &lt;a href=&quot;https:&#x2F;&#x2F;realfavicongenerator.net&#x2F;&quot;&gt;realfavicongenerator&lt;&#x2F;a&gt; to generate your favicon.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra.favicon]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;favicon_16x16 &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;icons&#x2F;favicon-16x16.png&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;favicon_32x32 &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;icons&#x2F;favicon-32x32.png&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;apple_touch_icon &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;icons&#x2F;apple-touch-icon.png&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;safari_pinned_tab &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;icons&#x2F;safari-pinned-tab.svg&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;webmanifest &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;icons&#x2F;site.webmanifest&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;social-link-setup&quot;&gt;Social Link Setup&lt;&#x2F;h2&gt;
+&lt;p&gt;You can configure social links in &lt;code&gt;[extra.social]&lt;&#x2F;code&gt; of &lt;code&gt;config.toml&lt;&#x2F;code&gt; file.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra.social]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;email &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;email_id&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;facebook &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;facebook_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;github &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;github_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gitlab &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;gitlab_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;keybase &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;keybase_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;linkedin &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;linkedin_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;stackoverflow &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;stackoverflow_userid&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;twitter &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;twitter_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;instagram &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;instagram_usernaem&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;behance &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;behance_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;google_scholar &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;googlescholar_userid&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;orcid &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;orcid_userid&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;mastodon &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;mastadon_username&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;google-analytics-setup&quot;&gt;Google Analytics Setup&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;DeepThought&lt;&#x2F;strong&gt; supports google analytics out of the box. You can configure google in &lt;code&gt;[extra.analytics]&lt;&#x2F;code&gt; of &lt;code&gt;config.toml&lt;&#x2F;code&gt; file. &lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra.analytics]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;google &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;your_gtag&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;disqus-comments-setup&quot;&gt;Disqus Comments Setup&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;DeepThought&lt;&#x2F;strong&gt; supports disqus commenting out of the box. You can configure disqus in &lt;code&gt;[extra.commenting]&lt;&#x2F;code&gt; of &lt;code&gt;config.toml&lt;&#x2F;code&gt; file. &lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra.commenting]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;disqus &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;your_disqus&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;external-libraries&quot;&gt;External Libraries&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;mermaid-chart-and-galleria&quot;&gt;Mermaid, Chart and Galleria&lt;&#x2F;h3&gt;
+&lt;p&gt;To gain the features displayed in &lt;a href=&quot;&#x2F;docs&#x2F;extended-shortcodes&quot;&gt;Extended Shortcodes&lt;&#x2F;a&gt;,
+enable the libraries you want to use in the &lt;code&gt;[extra]&lt;&#x2F;code&gt; section of &lt;code&gt;config.toml&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;chart&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;enabled &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;mermaid&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;enabled &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;galleria&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;enabled &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;mapbox&quot;&gt;Mapbox&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;DeepThought&lt;&#x2F;strong&gt; supports Mapbox out of the box to add maps in your posts.
+You can enable it and set an access token in the &lt;code&gt;[extra.mapbox]&lt;&#x2F;code&gt; section of &lt;code&gt;config.toml&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra.mapbox]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;enabled &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;access_token &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;your_access_token&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;katex&quot;&gt;KaTeX&lt;&#x2F;h3&gt;
+&lt;p&gt;This theme contains math formula support using &lt;a href=&quot;https:&#x2F;&#x2F;katex.org&#x2F;&quot;&gt;KaTeX&lt;&#x2F;a&gt;.
+To enable KaTeX in your project, set the following in the &lt;code&gt;[extra]&lt;&#x2F;code&gt; section of &lt;code&gt;config.toml&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;katex&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;enabled &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;katex&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;auto_render &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# automatic rendering without shortcodes
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;section-configurations&quot;&gt;Section Configurations&lt;&#x2F;h1&gt;
+&lt;p&gt;Apart from standard config you can also add a &lt;code&gt;description&lt;&#x2F;code&gt; in your &lt;code&gt;_index.md&lt;&#x2F;code&gt; file for your sections that appears in listing.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;description &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Blog posts accumulated over the time.&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;page-configurations&quot;&gt;Page Configurations&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;enable-table-of-content&quot;&gt;Enable Table Of Content&lt;&#x2F;h2&gt;
+&lt;p&gt;In order to enable &lt;code&gt;toc&lt;&#x2F;code&gt; for your post change as below code snippet in your page.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;toc &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;enable-comments&quot;&gt;Enable Comments&lt;&#x2F;h2&gt;
+&lt;p&gt;In order to enable &lt;code&gt;comments&lt;&#x2F;code&gt; for your post change as below code snippet in your page.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span&gt;[extra]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;comments &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Extended Shortcodes</title>
+		<published>2020-08-29T00:00:00+00:00</published>
+		<updated>2020-08-29T00:00:00+00:00</updated>
+		<link href="https://blog.thesjq.com/docs/extended-shortcodes/" type="text/html"/>
+		<id>https://blog.thesjq.com/docs/extended-shortcodes/</id>
+		<content type="html">&lt;p&gt;DeepThought theme provides multiple shortcodes on top of built-in ones in Zola.
+Please, have a look at the &lt;a href=&quot;&#x2F;docs&#x2F;config-options#external-libraries&quot;&gt;Config Options&lt;&#x2F;a&gt;
+that explain how to enable them.&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;mermaid&quot;&gt;Mermaid&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;mermaidjs.github.io&#x2F;&quot;&gt;Mermaid&lt;&#x2F;a&gt; is a library helping you to generate diagram and flowcharts from text, in a similar manner as Markdown.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;flowchart&quot;&gt;Flowchart&lt;&#x2F;h2&gt;
+&lt;p&gt;To put a flowchart in your post use below snippet&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% mermaid() %}
+&lt;&#x2F;span&gt;&lt;span&gt;graph TD;
+&lt;&#x2F;span&gt;&lt;span&gt;    A--&amp;gt;B;
+&lt;&#x2F;span&gt;&lt;span&gt;    A--&amp;gt;C;
+&lt;&#x2F;span&gt;&lt;span&gt;    B--&amp;gt;D;
+&lt;&#x2F;span&gt;&lt;span&gt;    C--&amp;gt;D;
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;graph TD;
+A--&amp;gt;B;
+A--&amp;gt;C;
+B--&amp;gt;D;
+C--&amp;gt;D;&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;sequence-diagram&quot;&gt;Sequence Diagram&lt;&#x2F;h2&gt;
+&lt;p&gt;To put a sequence diagram in your post use below snippet&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% mermaid() %}
+&lt;&#x2F;span&gt;&lt;span&gt;sequenceDiagram
+&lt;&#x2F;span&gt;&lt;span&gt;  participant Alice
+&lt;&#x2F;span&gt;&lt;span&gt;  participant Bob
+&lt;&#x2F;span&gt;&lt;span&gt;  Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
+&lt;&#x2F;span&gt;&lt;span&gt;  loop Healthcheck
+&lt;&#x2F;span&gt;&lt;span&gt;    John-&amp;gt;&amp;gt;John: Fight against hypochondria
+&lt;&#x2F;span&gt;&lt;span&gt;  end
+&lt;&#x2F;span&gt;&lt;span&gt;  Note right of John: Rational thoughts &amp;lt;br&#x2F;&amp;gt;prevail!
+&lt;&#x2F;span&gt;&lt;span&gt;  John--&amp;gt;&amp;gt;Alice: Great!
+&lt;&#x2F;span&gt;&lt;span&gt;  John-&amp;gt;&amp;gt;Bob: How about you?
+&lt;&#x2F;span&gt;&lt;span&gt;  Bob--&amp;gt;&amp;gt;John: Jolly good!
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
+  loop Healthcheck
+    John-&amp;gt;&amp;gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts &amp;lt;br&amp;#x2F;&amp;gt;prevail!
+  John--&amp;gt;&amp;gt;Alice: Great!
+  John-&amp;gt;&amp;gt;Bob: How about you?
+  Bob--&amp;gt;&amp;gt;John: Jolly good!&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gantt-diagram&quot;&gt;Gantt diagram&lt;&#x2F;h2&gt;
+&lt;p&gt;To put a gantt diagram in your post use below snippet&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% mermaid() %}
+&lt;&#x2F;span&gt;&lt;span&gt;gantt
+&lt;&#x2F;span&gt;&lt;span&gt;  dateFormat YYYY-MM-DD
+&lt;&#x2F;span&gt;&lt;span&gt;  title Adding GANTT diagram to mermaid
+&lt;&#x2F;span&gt;&lt;span&gt;  excludes weekdays 2014-01-10
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  section A section
+&lt;&#x2F;span&gt;&lt;span&gt;  Completed task :done, des1, 2014-01-06,2014-01-08
+&lt;&#x2F;span&gt;&lt;span&gt;  Active task :active, des2, 2014-01-09, 3d
+&lt;&#x2F;span&gt;&lt;span&gt;  Future task : des3, after des2, 5d
+&lt;&#x2F;span&gt;&lt;span&gt;  Future task2 : des4, after des3, 5d
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;gantt
+  dateFormat YYYY-MM-DD
+  title Adding GANTT diagram to mermaid
+  excludes weekdays 2014-01-10
+
+  section A section
+  Completed task :done, des1, 2014-01-06,2014-01-08
+  Active task :active, des2, 2014-01-09, 3d
+  Future task : des3, after des2, 5d
+  Future task2 : des4, after des3, 5d&lt;&#x2F;div&gt;
+&lt;h2 id=&quot;class-diagram-experimental&quot;&gt;Class diagram - experimental&lt;&#x2F;h2&gt;
+&lt;p&gt;To put a class diagram in your post use below snippet&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% mermaid() %}
+&lt;&#x2F;span&gt;&lt;span&gt;classDiagram
+&lt;&#x2F;span&gt;&lt;span&gt;  Class01 &amp;lt;|-- AveryLongClass : Cool
+&lt;&#x2F;span&gt;&lt;span&gt;  Class03 _-- Class04
+&lt;&#x2F;span&gt;&lt;span&gt;  Class05 o-- Class06
+&lt;&#x2F;span&gt;&lt;span&gt;  Class07 .. Class08
+&lt;&#x2F;span&gt;&lt;span&gt;  Class09 --&amp;gt; C2 : Where am i?
+&lt;&#x2F;span&gt;&lt;span&gt;  Class09 --_ C3
+&lt;&#x2F;span&gt;&lt;span&gt;  Class09 --|&amp;gt; Class07
+&lt;&#x2F;span&gt;&lt;span&gt;  Class07 : equals()
+&lt;&#x2F;span&gt;&lt;span&gt;  Class07 : Object[] elementData
+&lt;&#x2F;span&gt;&lt;span&gt;  Class01 : size()
+&lt;&#x2F;span&gt;&lt;span&gt;  Class01 : int chimp
+&lt;&#x2F;span&gt;&lt;span&gt;  Class01 : int gorilla
+&lt;&#x2F;span&gt;&lt;span&gt;  Class08 &amp;lt;--&amp;gt; C2: Cool label
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;classDiagram
+  Class01 &amp;lt;|-- AveryLongClass : Cool
+  Class03 _-- Class04
+  Class05 o-- Class06
+  Class07 .. Class08
+  Class09 --&amp;gt; C2 : Where am i?
+  Class09 --_ C3
+  Class09 --|&amp;gt; Class07
+  Class07 : equals()
+  Class07 : Object[] elementData
+  Class01 : size()
+  Class01 : int chimp
+  Class01 : int gorilla
+  Class08 &amp;lt;--&amp;gt; C2: Cool label&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;entity-relationship-diagram-experimental&quot;&gt;Entity Relationship Diagram - experimental&lt;&#x2F;h2&gt;
+&lt;p&gt;To put an ER diagram in your post use below snippet
+&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% mermaid() %}
+&lt;&#x2F;span&gt;&lt;span&gt;erDiagram
+&lt;&#x2F;span&gt;&lt;span&gt;    CUSTOMER ||--o{ ORDER : places
+&lt;&#x2F;span&gt;&lt;span&gt;    ORDER ||--|{ LINE-ITEM : contains
+&lt;&#x2F;span&gt;&lt;span&gt;    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;user-journey-diagram&quot;&gt;User Journey Diagram&lt;&#x2F;h2&gt;
+&lt;p&gt;To put an user journey diagram in your post use below snippet
+&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% mermaid() %}
+&lt;&#x2F;span&gt;&lt;span&gt;  journey
+&lt;&#x2F;span&gt;&lt;span&gt;  title My working day
+&lt;&#x2F;span&gt;&lt;span&gt;  section Go to work
+&lt;&#x2F;span&gt;&lt;span&gt;  Make tea: 5: Me
+&lt;&#x2F;span&gt;&lt;span&gt;  Go upstairs: 3: Me
+&lt;&#x2F;span&gt;&lt;span&gt;  Do work: 1: Me, Cat
+&lt;&#x2F;span&gt;&lt;span&gt;  section Go home
+&lt;&#x2F;span&gt;&lt;span&gt;  Go downstairs: 5: Me
+&lt;&#x2F;span&gt;&lt;span&gt;  Sit down: 5: Me
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;
+&lt;div class=&quot;mermaid is-flex is-justify-content-center is-align-items-center&quot;&gt;journey
+  title My working day
+  section Go to work
+  Make tea: 5: Me
+  Go upstairs: 3: Me
+  Do work: 1: Me, Cat
+  section Go home
+  Go downstairs: 5: Me
+  Sit down: 5: Me&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;mapbox&quot;&gt;Mapbox&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;docs.mapbox.com&#x2F;mapbox-gl-js&quot;&gt;Mapbox GL JS&lt;&#x2F;a&gt; is a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% mapbox(zoom=6) %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;type&amp;quot;: &amp;quot;FeatureCollection&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;features&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;type&amp;quot;: &amp;quot;Feature&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;geometry&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;type&amp;quot;: &amp;quot;Point&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;coordinates&amp;quot;: [78.016667, 27.183333]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;properties&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;title&amp;quot;: &amp;quot;Agra&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;description&amp;quot;: &amp;quot;Agra is a major tourist destination because of its many Mughal-era buildings, most notably the Taj Mahal, Agra Fort and Fatehpur Sikri, all of which are UNESCO World Heritage Sites.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;type&amp;quot;: &amp;quot;Feature&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;geometry&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;type&amp;quot;: &amp;quot;Point&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;coordinates&amp;quot;: [77.2, 28.6]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;properties&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;title&amp;quot;: &amp;quot;New Delhi&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;description&amp;quot;: &amp;quot;New Delhi is the capital of India and an administrative district of NCT Delhi.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;  ]
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;
+&lt;div class=&quot;map mb-6&quot; style=&#x27;height: 450px;&#x27;&gt;
+    &lt;div class=&quot;mapbox-access-token&quot;&gt;
+        &amp;lt;your_access_token&amp;gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class=&quot;mapbox-zoom&quot;&gt;
+        6
+    &lt;&#x2F;div&gt;
+     &lt;div class=&quot;mapbox-geojson&quot;&gt;
+        {
+  &amp;quot;type&amp;quot;: &amp;quot;FeatureCollection&amp;quot;,
+  &amp;quot;features&amp;quot;: [
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;Feature&amp;quot;,
+      &amp;quot;geometry&amp;quot;: {
+        &amp;quot;type&amp;quot;: &amp;quot;Point&amp;quot;,
+        &amp;quot;coordinates&amp;quot;: [78.016667, 27.183333]
+      },
+      &amp;quot;properties&amp;quot;: {
+        &amp;quot;title&amp;quot;: &amp;quot;Agra&amp;quot;,
+        &amp;quot;description&amp;quot;: &amp;quot;Agra is a major tourist destination because of its many Mughal-era buildings, most notably the Taj Mahal, Agra Fort and Fatehpur Sikri, all of which are UNESCO World Heritage Sites.&amp;quot;
+      }
+    },
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;Feature&amp;quot;,
+      &amp;quot;geometry&amp;quot;: {
+        &amp;quot;type&amp;quot;: &amp;quot;Point&amp;quot;,
+        &amp;quot;coordinates&amp;quot;: [77.2, 28.6]
+      },
+      &amp;quot;properties&amp;quot;: {
+        &amp;quot;title&amp;quot;: &amp;quot;New Delhi&amp;quot;,
+        &amp;quot;description&amp;quot;: &amp;quot;New Delhi is the capital of India and an administrative district of NCT Delhi.&amp;quot;
+      }
+    }
+  ]
+}
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;chart&quot;&gt;Chart&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;timqian.com&#x2F;chart.xkcd&#x2F;&quot;&gt;Chart.xkcd&lt;&#x2F;a&gt; is a chart library plots “sketchy”, “cartoony” or “hand-drawn” styled charts.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;line-chart&quot;&gt;Line chart&lt;&#x2F;h2&gt;
+&lt;p&gt;Line chart displays series of data points in the form of lines. It can be used to show trend data, or comparison of different data sets.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% chart() %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;type&amp;quot;: &amp;quot;Line&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;title&amp;quot;: &amp;quot;Monthly income of an indie developer&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;xLabel&amp;quot;: &amp;quot;Month&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;yLabel&amp;quot;: &amp;quot;$ Dollars&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;data&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;labels&amp;quot;: [&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;5&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;7&amp;quot;, &amp;quot;8&amp;quot;, &amp;quot;9&amp;quot;, &amp;quot;10&amp;quot;],
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;datasets&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;Plan&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [30, 70, 200, 300, 500, 800, 1500, 2900, 5000, 8000]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;Reality&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [0, 1, 30, 70, 80, 100, 50, 80, 40, 150]
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    ]
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;svg class=&quot;chart&quot;&gt;{
+  &quot;type&quot;: &quot;Line&quot;,
+  &quot;title&quot;: &quot;Monthly income of an indie developer&quot;,
+  &quot;xLabel&quot;: &quot;Month&quot;,
+  &quot;yLabel&quot;: &quot;$ Dollars&quot;,
+  &quot;data&quot;: {
+    &quot;labels&quot;: [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;],
+    &quot;datasets&quot;: [
+      {
+        &quot;label&quot;: &quot;Plan&quot;,
+        &quot;data&quot;: [30, 70, 200, 300, 500, 800, 1500, 2900, 5000, 8000]
+      },
+      {
+        &quot;label&quot;: &quot;Reality&quot;,
+        &quot;data&quot;: [0, 1, 30, 70, 80, 100, 50, 80, 40, 150]
+      }
+    ]
+  }
+}&lt;&#x2F;svg&gt;
+&lt;h2 id=&quot;xy-chart&quot;&gt;XY chart&lt;&#x2F;h2&gt;
+&lt;p&gt;XY chart is used to plot points by specifying their XY coordinates.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% chart() %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;type&amp;quot;: &amp;quot;XY&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;title&amp;quot;: &amp;quot;Pokemon farms&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;xLabel&amp;quot;: &amp;quot;Coordinate&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;yLabel&amp;quot;: &amp;quot;Count&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;data&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;datasets&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;Pikachu&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;          {
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;x&amp;quot;: 3,
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;y&amp;quot;: 10
+&lt;&#x2F;span&gt;&lt;span&gt;          },
+&lt;&#x2F;span&gt;&lt;span&gt;          {
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;x&amp;quot;: 4,
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;y&amp;quot;: 122
+&lt;&#x2F;span&gt;&lt;span&gt;          },
+&lt;&#x2F;span&gt;&lt;span&gt;          {
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;x&amp;quot;: 10,
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;y&amp;quot;: 100
+&lt;&#x2F;span&gt;&lt;span&gt;          }
+&lt;&#x2F;span&gt;&lt;span&gt;        ]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;Squirtle&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;          {
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;x&amp;quot;: 1,
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;y&amp;quot;: 1
+&lt;&#x2F;span&gt;&lt;span&gt;          },
+&lt;&#x2F;span&gt;&lt;span&gt;          {
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;x&amp;quot;: 3,
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;y&amp;quot;: 3
+&lt;&#x2F;span&gt;&lt;span&gt;          }
+&lt;&#x2F;span&gt;&lt;span&gt;        ]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;Charizard&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;          {
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;x&amp;quot;: 2,
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;y&amp;quot;: 5
+&lt;&#x2F;span&gt;&lt;span&gt;          },
+&lt;&#x2F;span&gt;&lt;span&gt;          {
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;x&amp;quot;: 6,
+&lt;&#x2F;span&gt;&lt;span&gt;            &amp;quot;y&amp;quot;: 8
+&lt;&#x2F;span&gt;&lt;span&gt;          }
+&lt;&#x2F;span&gt;&lt;span&gt;        ]
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    ]
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;options&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;xTickCount&amp;quot;: 5,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;yTickCount&amp;quot;: 5,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;showLine&amp;quot;: false,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;dotSize&amp;quot;: 1
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;svg class=&quot;chart&quot;&gt;{
+  &quot;type&quot;: &quot;XY&quot;,
+  &quot;title&quot;: &quot;Pokemon farms&quot;,
+  &quot;xLabel&quot;: &quot;Coordinate&quot;,
+  &quot;yLabel&quot;: &quot;Count&quot;,
+  &quot;data&quot;: {
+    &quot;datasets&quot;: [
+      {
+        &quot;label&quot;: &quot;Pikachu&quot;,
+        &quot;data&quot;: [
+          {
+            &quot;x&quot;: 3,
+            &quot;y&quot;: 10
+          },
+          {
+            &quot;x&quot;: 4,
+            &quot;y&quot;: 122
+          },
+          {
+            &quot;x&quot;: 10,
+            &quot;y&quot;: 100
+          }
+        ]
+      },
+      {
+        &quot;label&quot;: &quot;Squirtle&quot;,
+        &quot;data&quot;: [
+          {
+            &quot;x&quot;: 1,
+            &quot;y&quot;: 1
+          },
+          {
+            &quot;x&quot;: 3,
+            &quot;y&quot;: 3
+          }
+        ]
+      },
+      {
+        &quot;label&quot;: &quot;Charizard&quot;,
+        &quot;data&quot;: [
+          {
+            &quot;x&quot;: 2,
+            &quot;y&quot;: 5
+          },
+          {
+            &quot;x&quot;: 6,
+            &quot;y&quot;: 8
+          }
+        ]
+      }
+    ]
+  },
+  &quot;options&quot;: {
+    &quot;xTickCount&quot;: 5,
+    &quot;yTickCount&quot;: 5,
+    &quot;showLine&quot;: false,
+    &quot;dotSize&quot;: 1
+  }
+}&lt;&#x2F;svg&gt;
+&lt;h2 id=&quot;bar-chart&quot;&gt;Bar chart&lt;&#x2F;h2&gt;
+&lt;p&gt;A bar chart provides a way of showing data values represented as vertical bars&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% chart() %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;type&amp;quot;: &amp;quot;Bar&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;title&amp;quot;: &amp;quot;How to feel powerful ?&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;xLabel&amp;quot;: &amp;quot;Platforms&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;yLabel&amp;quot;: &amp;quot;Count&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;data&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;labels&amp;quot;: [&amp;quot;Earn Money&amp;quot;, &amp;quot;Get Famous&amp;quot;, &amp;quot;Use terminal in front of non-programmers&amp;quot;],
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;datasets&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [30, 45, 100]
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    ]
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;options&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;yTickCount&amp;quot;: 2,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;dataColors&amp;quot;: [&amp;quot;Red&amp;quot;, &amp;quot;Green&amp;quot;, &amp;quot;Blue&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;svg class=&quot;chart&quot;&gt;{
+  &quot;type&quot;: &quot;Bar&quot;,
+  &quot;title&quot;: &quot;How to feel powerful ?&quot;,
+  &quot;xLabel&quot;: &quot;Platforms&quot;,
+  &quot;yLabel&quot;: &quot;Count&quot;,
+  &quot;data&quot;: {
+    &quot;labels&quot;: [&quot;Earn Money&quot;, &quot;Get Famous&quot;, &quot;Use terminal in front of non-programmers&quot;],
+    &quot;datasets&quot;: [
+      {
+        &quot;data&quot;: [30, 45, 100]
+      }
+    ]
+  },
+  &quot;options&quot;: {
+    &quot;yTickCount&quot;: 2,
+    &quot;dataColors&quot;: [&quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;]
+  }
+}&lt;&#x2F;svg&gt;
+&lt;h2 id=&quot;stacked-bar-chart&quot;&gt;Stacked bar chart&lt;&#x2F;h2&gt;
+&lt;p&gt;A stacked bar chart provides a way of showing data values represented as vertical bars&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% chart() %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;type&amp;quot;: &amp;quot;StackedBar&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;title&amp;quot;: &amp;quot;Issues and PR Submissions&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;xLabel&amp;quot;: &amp;quot;Month&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;yLabel&amp;quot;: &amp;quot;Count&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;data&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;labels&amp;quot;: [&amp;quot;Jan&amp;quot;, &amp;quot;Feb&amp;quot;, &amp;quot;Mar&amp;quot;, &amp;quot;April&amp;quot;, &amp;quot;May&amp;quot;],
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;datasets&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;Issues&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [12, 19, 11, 29, 17]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;PRs&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [3, 5, 2, 4, 1]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;Merges&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [2, 3, 0, 1, 1]
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    ]
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;svg class=&quot;chart&quot;&gt;{
+  &quot;type&quot;: &quot;StackedBar&quot;,
+  &quot;title&quot;: &quot;Issues and PR Submissions&quot;,
+  &quot;xLabel&quot;: &quot;Month&quot;,
+  &quot;yLabel&quot;: &quot;Count&quot;,
+  &quot;data&quot;: {
+    &quot;labels&quot;: [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;April&quot;, &quot;May&quot;],
+    &quot;datasets&quot;: [
+      {
+        &quot;label&quot;: &quot;Issues&quot;,
+        &quot;data&quot;: [12, 19, 11, 29, 17]
+      },
+      {
+        &quot;label&quot;: &quot;PRs&quot;,
+        &quot;data&quot;: [3, 5, 2, 4, 1]
+      },
+      {
+        &quot;label&quot;: &quot;Merges&quot;,
+        &quot;data&quot;: [2, 3, 0, 1, 1]
+      }
+    ]
+  }
+}&lt;&#x2F;svg&gt;
+&lt;h2 id=&quot;pie-doughnut-chart&quot;&gt;Pie&#x2F;Doughnut chart&lt;&#x2F;h2&gt;
+&lt;p&gt;A pie&#x2F;doughnut chart provides a way of illustrating numerical proportion.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% chart() %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;type&amp;quot;: &amp;quot;Pie&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;title&amp;quot;: &amp;quot;What Tim is made of&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;data&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;labels&amp;quot;: [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;e&amp;quot;, &amp;quot;f&amp;quot;, &amp;quot;g&amp;quot;],
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;datasets&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [500, 200, 80, 90, 100]
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    ]
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;svg class=&quot;chart&quot;&gt;{
+  &quot;type&quot;: &quot;Pie&quot;,
+  &quot;title&quot;: &quot;What Tim is made of&quot;,
+  &quot;data&quot;: {
+    &quot;labels&quot;: [&quot;a&quot;, &quot;b&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;],
+    &quot;datasets&quot;: [
+      {
+        &quot;data&quot;: [500, 200, 80, 90, 100]
+      }
+    ]
+  }
+}&lt;&#x2F;svg&gt;
+&lt;h2 id=&quot;radar-chart&quot;&gt;Radar chart&lt;&#x2F;h2&gt;
+&lt;p&gt;A radar chart provides a way of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% chart() %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;type&amp;quot;: &amp;quot;Radar&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;title&amp;quot;: &amp;quot;Letters in random words&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;data&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;labels&amp;quot;: [&amp;quot;c&amp;quot;, &amp;quot;h&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;r&amp;quot;, &amp;quot;t&amp;quot;],
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;datasets&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;ccharrrt&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [2, 1, 1, 3, 1]
+&lt;&#x2F;span&gt;&lt;span&gt;      },
+&lt;&#x2F;span&gt;&lt;span&gt;      {
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;label&amp;quot;: &amp;quot;chhaart&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;data&amp;quot;: [1, 2, 2, 1, 1]
+&lt;&#x2F;span&gt;&lt;span&gt;      }
+&lt;&#x2F;span&gt;&lt;span&gt;    ]
+&lt;&#x2F;span&gt;&lt;span&gt;  },
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;options&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;showLegend&amp;quot;: true,
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;showLabels&amp;quot;: true
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;svg class=&quot;chart&quot;&gt;{
+  &quot;type&quot;: &quot;Radar&quot;,
+  &quot;title&quot;: &quot;Letters in random words&quot;,
+  &quot;data&quot;: {
+    &quot;labels&quot;: [&quot;c&quot;, &quot;h&quot;, &quot;a&quot;, &quot;r&quot;, &quot;t&quot;],
+    &quot;datasets&quot;: [
+      {
+        &quot;label&quot;: &quot;ccharrrt&quot;,
+        &quot;data&quot;: [2, 1, 1, 3, 1]
+      },
+      {
+        &quot;label&quot;: &quot;chhaart&quot;,
+        &quot;data&quot;: [1, 2, 2, 1, 1]
+      }
+    ]
+  },
+  &quot;options&quot;: {
+    &quot;showLegend&quot;: true,
+    &quot;showLabels&quot;: true
+  }
+}&lt;&#x2F;svg&gt;
+&lt;h1 id=&quot;galleria&quot;&gt;Galleria&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;galleriajs.github.io&#x2F;&quot;&gt;Galleria&lt;&#x2F;a&gt; is a framework that simplifies the process of creating beautiful image galleries for the web and mobile devices.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% galleria() %}
+&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;images&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;alexandre-dinaut-GHxr3O6yZ1c-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;Clouds &amp;amp; Mountains&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Just hanging out with each other.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;chandler-cruttenden-YYemke7BfuE-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;Crop&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Waiting for the harvest.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;jung-ho-park-7aZtpsyaWVM-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;The Fog&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Engulfing everything.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;kitera-dent-BIj4LObC6es-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;Just Plants&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Backdrop of ocean.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;koes-nadi-XkUFF1nnbA8-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;Whoa&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Something to look at.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;lazyartistgallery-HHaIRbgzcGw-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;Let&amp;#39;s Chill&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Three birds just chilling !!&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;saira-nUxdL_19OQw-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;Canyon&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Might of nature.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    },
+&lt;&#x2F;span&gt;&lt;span&gt;    {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;src&amp;quot;: &amp;quot;waldemar-brandt-2hAEHCt25eM-unsplash.jpg&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;title&amp;quot;: &amp;quot;Evening&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;description&amp;quot;: &amp;quot;Time to wind down.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;  ]
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;div class=&quot;galleria mb-6&quot; style=&quot;height: 450px&quot;&gt;{
+  &quot;images&quot;: [
+    {
+      &quot;src&quot;: &quot;alexandre-dinaut-GHxr3O6yZ1c-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;Clouds &amp; Mountains&quot;,
+      &quot;description&quot;: &quot;Just hanging out with each other.&quot;
+    },
+    {
+      &quot;src&quot;: &quot;chandler-cruttenden-YYemke7BfuE-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;Crop&quot;,
+      &quot;description&quot;: &quot;Waiting for the harvest.&quot;
+    },
+    {
+      &quot;src&quot;: &quot;jung-ho-park-7aZtpsyaWVM-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;The Fog&quot;,
+      &quot;description&quot;: &quot;Engulfing everything.&quot;
+    },
+    {
+      &quot;src&quot;: &quot;kitera-dent-BIj4LObC6es-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;Just Plants&quot;,
+      &quot;description&quot;: &quot;Backdrop of ocean.&quot;
+    },
+    {
+      &quot;src&quot;: &quot;koes-nadi-XkUFF1nnbA8-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;Whoa&quot;,
+      &quot;description&quot;: &quot;Something to look at.&quot;
+    },
+    {
+      &quot;src&quot;: &quot;lazyartistgallery-HHaIRbgzcGw-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;Let&#x27;s Chill&quot;,
+      &quot;description&quot;: &quot;Three birds just chilling !!&quot;
+    },
+    {
+      &quot;src&quot;: &quot;saira-nUxdL_19OQw-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;Canyon&quot;,
+      &quot;description&quot;: &quot;Might of nature.&quot;
+    },
+    {
+      &quot;src&quot;: &quot;waldemar-brandt-2hAEHCt25eM-unsplash.jpg&quot;,
+      &quot;title&quot;: &quot;Evening&quot;,
+      &quot;description&quot;: &quot;Time to wind down.&quot;
+    }
+  ]
+}&lt;&#x2F;div&gt;&lt;h1 id=&quot;katex&quot;&gt;KaTeX&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;katex.org&#x2F;&quot;&gt;KaTeX&lt;&#x2F;a&gt; is a math typesetting library based on TeX.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Code&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;{% katex(block=true) %}
+&lt;&#x2F;span&gt;&lt;span&gt;\KaTeX
+&lt;&#x2F;span&gt;&lt;span&gt;{% end %}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;script type=&quot;math&#x2F;tex;mode=display&quot;&gt;\KaTeX&lt;&#x2F;script&gt;
+&lt;p&gt;&lt;strong&gt;Photo By:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@alexdinaut?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;ALEXANDRE DINAUT&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@alexdinaut?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@chanphoto?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Chandler Cruttenden&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@chanphoto?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@mylovefromjesus?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Jung Ho Park&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@mylovefromjesus?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@kitera?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Kitera Dent&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@kitera?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@bangkoes?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Koes nadi&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@bangkoes?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@rahulp9800?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Lazyartistgallery&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@rahulp9800?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@sairaa?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Saira&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@sairaa?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@waldemarbrandt67w?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Waldemar Brandt&lt;&#x2F;a&gt; on &lt;a href=&quot;https:&#x2F;&#x2F;unsplash.com&#x2F;@waldemarbrandt67w?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>
